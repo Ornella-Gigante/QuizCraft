@@ -42,13 +42,27 @@ The project is organized into the following main components:
 
 ## 🚦 Getting Started
 
-1. **Clone the repository:**
+Follow these simple steps to get started with QuizCraft:
+
+Clone the repository
+
+bash
 git clone https://github.com/yourusername/QuizCraft.git
+Open the project in Android Studio
 
-text
-2. **Open the project in Android Studio.**
-3. **Build and run the app on your device or emulator.**
+Launch Android Studio.
 
+Select Open an existing Android Studio project.
+
+Navigate to the folder where you cloned the repository and select it.
+
+Build and run the app
+
+Click the Run button (or press Shift + F10).
+
+Choose your device or emulator.
+
+Enjoy QuizCraft! 🎉
 ---
 
 ## 🤝 Contributing
