@@ -1,12 +1,10 @@
 # 🧠✨ QuizCraft: Android Quiz App with Room & Jetpack
 
-**QuizCraft** is a modern, interactive quiz app built with Android Studio, Kotlin, and the Room Database Library. It features engaging UI, local data persistence, scoreboards, timers, and immersive audio for a fun learning experience. Perfect for beginners and enthusiasts alike!
-
----
 
 ## 🚀 App Overview
 
-**QuizCraft** is a dynamic Android quiz application designed to help users test and expand their knowledge in a fun, interactive way. With a sleek UI, robust local data management, and engaging features like timers and scoreboards, QuizCraft makes learning enjoyable and rewarding.
+**QuizCraft** is a dynamic Android quiz application designed to help users test and expand their knowledge in a fun, interactive way.
+With a sleek UI, robust local data management, and engaging features like timers and scoreboards, QuizCraft makes learning enjoyable and rewarding!!
 
 ---
 
