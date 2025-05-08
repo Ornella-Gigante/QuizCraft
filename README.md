@@ -65,7 +65,8 @@ Follow these simple steps to get started with QuizCraft:
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+Contributions are welcome!
+If you have any doubts in the matter, please read the [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ---
 
