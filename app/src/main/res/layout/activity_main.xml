@@ -6,10 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/bg_color"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/txtQuestionNum"
+        android:id="@+id/txtTotalQuiestions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text= "Question: 1/10"
