@@ -39,4 +39,17 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+
+    // Room Libraires
+    // Room (AndroidX)
+    implementation("androidx.room:room-runtime:2.6.1")
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+
+
+    // Kotlin annotation processing tool (kapt) si usas Kotlin:
+    // kapt("androidx.room:room-compiler:2.6.1")
+    // ViewModel y LiveData (AndroidX)
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
 }
