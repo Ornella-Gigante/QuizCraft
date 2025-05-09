@@ -10,7 +10,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/txtTotalQuiestions"
+        android:id="@+id/txtTotalQuestions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text= "Question: 1/10"
