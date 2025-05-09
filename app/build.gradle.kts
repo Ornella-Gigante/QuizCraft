@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace = "es.ifp.quizcraft"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "es.ifp.quizcraft"
-        minSdk = 34
-        targetSdk = 34
+        minSdk = 26
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -32,7 +32,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
