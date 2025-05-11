@@ -16,55 +16,57 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:text="Score: 0"
+        android:text="Question 1/10"
         android:textStyle="bold"
         android:textColor="#000"
         android:textSize="18sp"
-
+        android:layout_marginTop="10dp"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/txtScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView"
+            android:text="Score: 0"
             android:textStyle="bold"
             android:textColor="#000"
             android:textSize="18sp"
          />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textCorrect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView"
+            android:text="Correct: 16"
             android:textStyle="bold"
             android:textColor="#000"
             android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/txtWrong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView"
+            android:text="Incorrect: 12"
             android:textStyle="bold"
             android:textColor="#000"
             android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/txtTimer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView"
+            android:text="00:30"
+            android:textAlignment="textEnd"
             android:textStyle="bold"
             android:textColor="#000"
             android:textSize="18sp"/>
