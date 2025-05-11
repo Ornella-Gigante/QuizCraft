@@ -26,8 +26,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/txtScore"
@@ -35,10 +35,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Score: 0"
-            android:textStyle="bold"
             android:textColor="#000"
             android:textSize="18sp"
-         />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textCorrect"
@@ -46,9 +45,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Correct: 16"
-            android:textStyle="bold"
             android:textColor="#000"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtWrong"
@@ -56,9 +55,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Incorrect: 12"
-            android:textStyle="bold"
             android:textColor="#000"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtTimer"
@@ -67,9 +66,23 @@
             android:layout_weight="1"
             android:text="00:30"
             android:textAlignment="textEnd"
-            android:textStyle="bold"
             android:textColor="#000"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtQuestionContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welcome to QuizCraft! Get ready to test your knowledge!" />
     </LinearLayout>
 
 
