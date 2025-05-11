@@ -13,11 +13,11 @@
         android:id="@+id/txtTotalQuestions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text= "Question: 1/10"
-        android:textSize="22sp"
-        android:textColor="#000"
-        android:textStyle="bold"
         android:textAlignment="center"
+        android:text="Score: 0"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:textSize="18sp"
 
         />
 
@@ -31,10 +31,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Score: 0"
-            android:textStyle="bold"
-            android:textColor="#000"
-            android:textSize="18sp"/>
+            android:text="TextView"
+         />
 
         <TextView
             android:id="@+id/textView2"
