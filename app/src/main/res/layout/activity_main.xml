@@ -106,7 +106,10 @@
                     android:layout_weight="1"
                     android:button="@null"
                     android:freezesText="true"
-                    android:text="RadioButton" />
+                    android:text="RadioButton"
+                    android:textSize="22sp"
+                    android:textColor="#000"
+                    android:textAlignment="center"/>
 
                 <RadioButton
                     android:id="@+id/radio_button2"
@@ -115,7 +118,10 @@
                     android:layout_weight="1"
                     android:button="@null"
                     android:freezesText="true"
-                    android:text="RadioButton" />
+                    android:text="RadioButton"
+                    android:textSize="22sp"
+                    android:textColor="#000"
+                    android:textAlignment="center"/>
 
                 <RadioButton
                     android:id="@+id/radio_button3"
@@ -124,7 +130,10 @@
                     android:layout_weight="1"
                     android:button="@null"
                     android:freezesText="true"
-                    android:text="RadioButton" />
+                    android:text="RadioButton"
+                    android:textSize="22sp"
+                    android:textColor="#000"
+                    android:textAlignment="center"/>
 
                 <RadioButton
                     android:id="@+id/radio_button4"
@@ -133,7 +142,10 @@
                     android:layout_weight="1"
                     android:button="@null"
                     android:freezesText="true"
-                    android:text="RadioButton" />
+                    android:text="RadioButton"
+                    android:textSize="22sp"
+                    android:textColor="#000"
+                    android:textAlignment="center"/>
             </RadioGroup>
 
         </LinearLayout>
