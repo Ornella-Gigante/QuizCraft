@@ -20,13 +20,13 @@
         android:textStyle="bold"
         android:textColor="#000"
         android:textSize="18sp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal">
 
         <TextView
@@ -74,14 +74,19 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:layout_marginTop="30dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/txtQuestionContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:padding="15dp"
             android:text="Welcome to QuizCraft! Get ready to test your knowledge!" />
     </LinearLayout>
 
