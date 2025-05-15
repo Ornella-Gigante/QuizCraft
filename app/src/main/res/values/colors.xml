@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#BA9516</color>
-    <color name="colorPrimaryDark">#ecdaa3</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="bg_color">#F8C638</color>
+    <color name="colorPrimary">#9C27B0</color> <!-- Lila vibrante como color primario -->
+    <color name="colorPrimaryDark">#7B1FA2</color> <!-- Lila oscuro para elementos secundarios -->
+    <color name="colorAccent">#CE93D8</color> <!-- Lila claro como acento -->
+    <color name="bg_color">#E1BEE7</color> <!-- Fondo en lila muy claro para suavidad -->
 </resources>
