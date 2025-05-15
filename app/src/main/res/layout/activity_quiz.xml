@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
@@ -8,8 +9,8 @@
     android:orientation="vertical"
     android:background="@drawable/bg_gradient"
     tools:context=".QuizActivity"
-    android:paddingLeft="5dp"
-    android:paddingRight="5dp">
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
 
     <TextView
         android:id="@+id/txtTotalQuestions"
@@ -165,6 +166,12 @@
                     android:background="@drawable/default_option_bg"/>
             </RadioGroup>
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/owl_png_app" />
     </LinearLayout>
 
     <LinearLayout
@@ -177,10 +184,10 @@
 
         <Button
             android:id="@+id/button_confirm"
-            android:layout_width="wrap_content"
+            android:layout_width="139dp"
             android:layout_height="wrap_content"
-            android:text="Next"
-            android:textSize="18sp"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:text="Confirm"
+            android:textSize="18sp" />
     </LinearLayout>
 </LinearLayout>
