@@ -25,8 +25,7 @@ public class Questions {
     @ColumnInfo(name = "answer")
     private int answer;
 
-    public Questions(int id, String question, String opA, String opB, String opC, String opD, int answer) {
-        this.id = id;
+    public Questions(String question, String opA, String opB, String opC, String opD, int answer) {
         this.question = question;
         this.opA = opA;
         this.opB = opB;
@@ -34,5 +33,77 @@ public class Questions {
         this.opD = opD;
         this.answer = answer;
     }
+
+
+    public Questions() {
+        this.id= id;
+        this.question = question;
+        this.opA = opA;
+        this.opB = opB;
+        this.opC = opC;
+        this.opD = opD;
+        this.answer = answer;
+    }
+
+
+
+    // Getters y Setters
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public String getOpA() {
+        return opA;
+    }
+
+    public void setOpA(String opA) {
+        this.opA = opA;
+    }
+
+    public String getOpB() {
+        return opB;
+    }
+
+    public void setOpB(String opB) {
+        this.opB = opB;
+    }
+
+    public String getOpC() {
+        return opC;
+    }
+
+    public void setOpC(String opC) {
+        this.opC = opC;
+    }
+
+    public String getOpD() {
+        return opD;
+    }
+
+    public void setOpD(String opD) {
+        this.opD = opD;
+    }
+
+    public int getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(int answer) {
+        this.answer = answer;
+    }
+
 
 }
