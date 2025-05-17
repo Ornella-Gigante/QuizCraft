@@ -25,6 +25,14 @@ public class Questions {
     @ColumnInfo(name = "answer")
     private int answer;
 
-
+    public Questions(int id, String question, String opA, String opB, String opC, String opD, int answer) {
+        this.id = id;
+        this.question = question;
+        this.opA = opA;
+        this.opB = opB;
+        this.opC = opC;
+        this.opD = opD;
+        this.answer = answer;
+    }
 
 }
