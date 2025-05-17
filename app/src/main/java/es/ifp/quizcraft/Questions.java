@@ -12,15 +12,17 @@ public class Questions {
 
     @ColumnInfo(name = "id")
     private int id;
-    @ColumnInfo(name = "id")
+    @ColumnInfo(name = "question")
     private String question;
-    @ColumnInfo(name = "id")
+    @ColumnInfo(name = "opA")
     private String opA;
-    @ColumnInfo(name = "id")
+    @ColumnInfo(name = "opB")
     private String opB;
-    @ColumnInfo(name = "id")
+    @ColumnInfo(name = "opC")
     private String opC;
-    @ColumnInfo(name = "id")
+    @ColumnInfo(name = "opD")
+    private String opD;
+    @ColumnInfo(name = "answer")
     private int answer;
 
 
