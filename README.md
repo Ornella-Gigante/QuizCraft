@@ -8,7 +8,12 @@ With a sleek UI, robust local data management, and engaging features like timers
 
 ---
 
-<img src="https://github.com/Ornella-Gigante/QuizCraft/blob/main/demo_image-removebg-preview.png" alt="GoQuizApp Demo" width="800"/>
+<p align="center">
+        
+   <img src="https://github.com/Ornella-Gigante/QuizCraft/blob/main/demo_image-removebg-preview.png" alt="GoQuizApp Demo" width="800"/>
+
+</p>
+
 
 ---
 
