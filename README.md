@@ -8,6 +8,10 @@ With a sleek UI, robust local data management, and engaging features like timers
 
 ---
 
+<img src="https://github.com/Ornella-Gigante/QuizCraft/blob/main/demo_image.png" alt="GoQuizApp Demo" width="800"/>
+
+---
+
 ## 🛠️ Technologies Used
 
 - **Android Studio**: The official IDE for Android development.
