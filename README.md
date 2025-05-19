@@ -6,11 +6,9 @@
 **QuizCraft** is a dynamic Android quiz application designed to help users test and expand their knowledge in a fun, interactive way.
 With a sleek UI, robust local data management, and engaging features like timers and scoreboards, QuizCraft makes learning enjoyable and rewarding!!
 
----
 <p align="center">
    <img src="https://github.com/Ornella-Gigante/QuizCraft/blob/main/demo_image-removebg-preview.png" alt="GoQuizApp Demo" width="800"/>
 </p>
----
 
 ## 🛠️ Technologies Used
 
