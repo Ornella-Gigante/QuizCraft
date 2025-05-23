@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.DatabaseConfiguration;
 import androidx.room.InvalidationTracker;
+import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
@@ -16,6 +17,17 @@ public abstract class QuestionDatabase extends RoomDatabase {
 
     public abstract QuestionDao questionDao();
 
+   public static synchronized QuestionDatabase getInstance(final Context context){
+
+       if(INSTANCE == null){
+           INSTANCE == Room.databaseBuilder(context.getApplicationContext(),
+           QuestionDatabase.class, "questions_database").fallbackToDestructiveMigration()
+                   .addCallback()
+                   .build();
+       }
+
+       return INSTANCE;
+   }
 
 
     @Override
