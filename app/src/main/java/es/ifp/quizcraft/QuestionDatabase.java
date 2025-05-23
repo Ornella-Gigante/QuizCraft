@@ -33,17 +33,16 @@ public abstract class QuestionDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
-    // Callback usando ExecutorService
     private static final RoomDatabase.Callback RoomDBCallback =
             new RoomDatabase.Callback() {
                 @Override
                 public void onCreate(@NonNull SupportSQLiteDatabase db) {
                     super.onCreate(db);
 
-                    // Usar el Executor para operaciones en background
                     databaseWriteExecutor.execute(() -> {
                         QuestionDao dao = INSTANCE.questionDao();
-                        // Insertar datos iniciales
+
+                        // Pregunta 1 (existente)
                         dao.insert(new Questions(
                                 "What is Android?",
                                 "OS",
@@ -52,7 +51,49 @@ public abstract class QuestionDatabase extends RoomDatabase {
                                 "Hard Drive",
                                 1
                         ));
+
+                        // Pregunta 2
+                        dao.insert(new Questions(
+                                "What is the primary language for Android development?",
+                                "Java",
+                                "Kotlin",
+                                "C++",
+                                "Python",
+                                2 // Respuesta correcta: Kotlin
+                        ));
+
+                        // Pregunta 3
+                        dao.insert(new Questions(
+                                "What does Room provide in Android?",
+                                "Local database abstraction",
+                                "Networking",
+                                "Image loading",
+                                "GPS tracking",
+                                1 // Respuesta correcta: Local database abstraction
+                        ));
+
+                        // Pregunta 4
+                        dao.insert(new Questions(
+                                "What is LiveData used for?",
+                                "Real-time UI updates",
+                                "File storage",
+                                "Audio playback",
+                                "Video recording",
+                                1 // Respuesta correcta: Real-time UI updates
+                        ));
+
+                        // Pregunta 5
+                        dao.insert(new Questions(
+                                "Which component manages app navigation?",
+                                "Navigation Controller",
+                                "RecyclerView",
+                                "SharedPreferences",
+                                "Retrofit",
+                                1 // Respuesta correcta: Navigation Controller
+                        ));
                     });
                 }
             };
-}
+
+};
+
