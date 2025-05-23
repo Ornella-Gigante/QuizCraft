@@ -8,6 +8,7 @@ import androidx.room.DatabaseConfiguration;
 import androidx.room.InvalidationTracker;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
 @Database(entities = {Questions.class}, version = 1)
@@ -20,9 +21,10 @@ public abstract class QuestionDatabase extends RoomDatabase {
    public static synchronized QuestionDatabase getInstance(final Context context){
 
        if(INSTANCE == null){
-           INSTANCE == Room.databaseBuilder(context.getApplicationContext(),
-           QuestionDatabase.class, "questions_database").fallbackToDestructiveMigration()
-                   .addCallback()
+           INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+           QuestionDatabase.class, "questions_database")
+                   .fallbackToDestructiveMigration()
+                   .addCallback(RoomDBCallback)
                    .build();
        }
 
@@ -30,20 +32,12 @@ public abstract class QuestionDatabase extends RoomDatabase {
    }
 
 
-    @Override
-    public void clearAllTables() {
+   private static RoomDatabase.Callback RoomDBCallback = new RoomDatabase.Callback(){
 
-    }
+       @Override
+       public void onCreate(@NonNull SupportSQLiteDatabase db){
+           super.onCreate(db);
+       }
+   };
 
-    @NonNull
-    @Override
-    protected SupportSQLiteOpenHelper createOpenHelper(@NonNull DatabaseConfiguration databaseConfiguration) {
-        return null;
-    }
-
-    @NonNull
-    @Override
-    protected InvalidationTracker createInvalidationTracker() {
-        return null;
-    }
 }
