@@ -59,4 +59,18 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
     }
+
+    void initializeViews() {
+        txtQuestion = findViewById(R.id.txtQuestionContainer);
+        textViewScore = findViewById(R.id.txtScore);
+        textViewQuestionCount = findViewById(R.id.txtTotalQuestions);
+        textViewCorrect = findViewById(R.id.textCorrect);
+        textViewWrong = findViewById(R.id.txtWrong);
+        rb1 = findViewById(R.id.radio_button1);
+        rb2 = findViewById(R.id.radio_button2);
+        rb3 = findViewById(R.id.radio_button3);
+        rb4 = findViewById(R.id.radio_button4);
+        rbGroup = findViewById(R.id.radio_group);
+        btNext = findViewById(R.id.button_confirm);
+    }
 }
