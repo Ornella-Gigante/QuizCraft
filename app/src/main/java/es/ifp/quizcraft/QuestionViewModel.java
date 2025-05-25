@@ -16,4 +16,9 @@ public class QuestionViewModel {
         mRepository = new QuestionsRepository(application);
         mAllQuestions = mRepository.getAllQuestions();
     }
+
+    LiveData<List<Questions>> getAllQuestions(){
+
+        return mAllQuestions;
+    }
 }
