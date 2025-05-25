@@ -59,12 +59,17 @@ public class QuizActivity extends AppCompatActivity {
 
                 Toast.makeText(QuizActivity.this, "Get It:", Toast.LENGTH_SHORT).show();
            
-                fetchDataBase();
+                fetchContent(questions);
             }
         });
     }
 
-    private void fetchDataBase() {
+    private void fetchContent(List<Questions> questions) {
+
+        questList = questions;
+
+        //startQuiz() method
+
     }
 
     void setupUI() {
