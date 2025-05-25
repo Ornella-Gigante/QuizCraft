@@ -15,10 +15,16 @@ public class QuestionsRepository {
 
 
     public QuestionsRepository(Application application){
-        
+
         QuestionDatabase db = QuestionDatabase.getInstance(application);
         mQuestionDao = db.questionDao();
         mAllQuestions = mQuestionDao.getAllQuestions();
+    }
+
+    
+    public LiveData<List<Questions>> getAllQuestions(){
+
+        return mAllQuestions;
     }
 
 }
