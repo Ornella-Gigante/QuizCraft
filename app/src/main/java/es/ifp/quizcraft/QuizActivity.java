@@ -12,6 +12,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.List;
+
 public class QuizActivity extends AppCompatActivity {
 
     TextView txtQuestion;
@@ -26,6 +28,10 @@ public class QuizActivity extends AppCompatActivity {
     Button btNext;
 
     boolean answered = false;
+
+
+    List<Questions> questList;
+    Questions currentQ;
 
 
     @Override
