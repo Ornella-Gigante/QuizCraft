@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
 
 import java.util.List;
 
@@ -22,14 +23,10 @@ public class QuizActivity extends AppCompatActivity {
     TextView textViewQuestionCountDownTimer;
     TextView textViewCorrect;
     TextView textViewWrong;
-
     RadioButton rb1, rb2,rb3,rb4;
     RadioGroup rbGroup;
     Button btNext;
-
     boolean answered = false;
-
-
     List<Questions> questList;
     Questions currentQ;
 
@@ -39,7 +36,6 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_quiz);
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
