@@ -15,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.nio.file.Path;
 import java.util.List;
 
 public class QuizActivity extends AppCompatActivity {
@@ -47,7 +48,9 @@ public class QuizActivity extends AppCompatActivity {
             return insets;
         });
 
-        questionViewModel = ViewModelProviders.of(this).get(QuestionViewModel.class);
+
+        questionViewModel = new ViewModelProvider(this).get(QuestionViewModel.class);
+
         questionViewModel.getAllQuestions().observe(this, new Observer<List<Questions>>() {
             @Override
             public void onChanged(List<Questions> questions) {
