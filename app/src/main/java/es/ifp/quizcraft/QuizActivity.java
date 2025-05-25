@@ -1,6 +1,9 @@
 package es.ifp.quizcraft;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -17,6 +20,10 @@ public class QuizActivity extends AppCompatActivity {
     TextView textViewQuestionCountDownTimer;
     TextView textViewCorrect;
     TextView textViewWrong;
+
+    RadioButton rb1, rb2,rb3,rb4;
+    RadioGroup rbGroup;
+    Button btNext;
 
 
     @Override
