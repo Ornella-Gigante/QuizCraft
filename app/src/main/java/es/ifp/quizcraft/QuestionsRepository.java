@@ -21,7 +21,7 @@ public class QuestionsRepository {
         mAllQuestions = mQuestionDao.getAllQuestions();
     }
 
-    
+
     public LiveData<List<Questions>> getAllQuestions(){
 
         return mAllQuestions;
