@@ -17,6 +17,8 @@ import java.util.List;
 
 public class QuizActivity extends AppCompatActivity {
 
+
+    private QuestionViewModel questionViewModel;
     TextView txtQuestion;
     TextView textViewScore;
     TextView textViewQuestionCount;
