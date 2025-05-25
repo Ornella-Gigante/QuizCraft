@@ -25,6 +25,8 @@ public class QuizActivity extends AppCompatActivity {
     RadioGroup rbGroup;
     Button btNext;
 
+    boolean answered = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
