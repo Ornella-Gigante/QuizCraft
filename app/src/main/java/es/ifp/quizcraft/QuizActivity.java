@@ -41,6 +41,8 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_quiz);
+        
+        setupUI();
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -56,11 +58,16 @@ public class QuizActivity extends AppCompatActivity {
             public void onChanged(List<Questions> questions) {
 
                 Toast.makeText(QuizActivity.this, "Get It:", Toast.LENGTH_SHORT).show();
+           
+                fetchDataBase();
             }
         });
     }
 
-    void initializeViews() {
+    private void fetchDataBase() {
+    }
+
+    void setupUI() {
         txtQuestion = findViewById(R.id.txtQuestionContainer);
         textViewScore = findViewById(R.id.txtScore);
         textViewQuestionCount = findViewById(R.id.txtTotalQuestions);
@@ -71,6 +78,6 @@ public class QuizActivity extends AppCompatActivity {
         rb3 = findViewById(R.id.radio_button3);
         rb4 = findViewById(R.id.radio_button4);
         rbGroup = findViewById(R.id.radio_group);
-        btNext = findViewById(R.id.button_confirm);
+        btNext = findViewById(R.id.button_Next);
     }
 }

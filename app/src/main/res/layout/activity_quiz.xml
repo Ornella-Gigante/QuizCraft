@@ -183,11 +183,11 @@
         android:gravity="center">
 
         <Button
-            android:id="@+id/button_confirm"
+            android:id="@+id/button_Next"
             android:layout_width="139dp"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Confirm"
+            android:text="Next"
             android:textSize="18sp" />
     </LinearLayout>
 </LinearLayout>
