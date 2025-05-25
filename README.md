@@ -7,7 +7,7 @@
 With a sleek UI, robust local data management, and engaging features like timers and scoreboards, QuizCraft makes learning enjoyable and rewarding!
 
 <p align="center">
-   <img src="https://github.com/Ornella-Gigante/QuizCraft/blob/main/demo_image_quiz.jpg" alt="GoQuizApp Demo" width="600"/>
+   <img src="https://github.com/Ornella-Gigante/QuizCraft/blob/main/demo_image_quiz.jpg" alt="GoQuizApp Demo" width="500"/>
 </p>
 
 ## 🛠️ Technologies Used
