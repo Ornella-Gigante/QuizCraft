@@ -72,6 +72,11 @@ public class QuizActivity extends AppCompatActivity {
 
     }
 
+
+    private void setQuestions(){
+
+    }
+
     void setupUI() {
         txtQuestion = findViewById(R.id.txtQuestionContainer);
         textViewScore = findViewById(R.id.txtScore);
