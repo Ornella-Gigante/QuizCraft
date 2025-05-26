@@ -120,7 +120,7 @@ public class QuizActivity extends AppCompatActivity {
                 if(!answered){
                     if(rb1.isChecked() || rb2.isChecked() || rb3.isChecked() || rb4.isChecked()){
 
-                        //quizOperation();
+                        quizOperation();
                     }else{
 
                         Toast.makeText(QuizActivity.this, "Please select answer", Toast.LENGTH_SHORT).show();
@@ -129,6 +129,17 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
     }
+
+private void quizOperation(){
+
+        answered = true;
+
+        RadioButton rbselected = findViewById(rbGroup.getCheckedRadioButtonId());
+        int answerNr = rbGroup.indexOfChild(rbselected) + 1;
+
+        checkSolution();
+}
+
 
     void setupUI() {
         txtQuestion = findViewById(R.id.txtQuestionContainer);
