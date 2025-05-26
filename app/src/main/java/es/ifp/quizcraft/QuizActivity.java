@@ -71,8 +71,11 @@ public class QuizActivity extends AppCompatActivity {
 
         questList = questions;
 
-        //startQuiz() method
+        startQuiz();
 
+    }
+
+    private void startQuiz() {
     }
 
 
