@@ -34,6 +34,8 @@ public class QuizActivity extends AppCompatActivity {
     boolean answered = false;
     List<Questions> questList;
     Questions currentQ;
+    private int QuestionCounter; 
+    private int QuestionTotalCount;
 
 
     @Override
