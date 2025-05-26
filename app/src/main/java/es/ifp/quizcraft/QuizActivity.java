@@ -137,8 +137,47 @@ private void quizOperation(){
         RadioButton rbselected = findViewById(rbGroup.getCheckedRadioButtonId());
         int answerNr = rbGroup.indexOfChild(rbselected) + 1;
 
-        checkSolution();
-}
+        checkSolution(answerNr, rbselected);
+    }
+
+    private void checkSolution(int answerNr, RadioButton rbselected) {
+        switch (currentQ.getAnswer()) {
+            case 1:
+                if (currentQ.getAnswer() == answerNr) {
+                    // rb1
+                } else {
+                    // rb1 incorrect
+                }
+                break;
+            case 2:
+                if (currentQ.getAnswer() == answerNr) {
+
+                    // Correct answer selected (Option B)
+                } else {
+                    // Incorrect answer
+                }
+                break;
+            case 3:
+                if (currentQ.getAnswer() == answerNr) {
+                    // Correct answer selected (Option C)
+                } else {
+                    // Incorrect answer
+                }
+                break;
+            case 4:
+                if (currentQ.getAnswer() == answerNr) {
+                    // Correct answer selected (Option D)
+                } else {
+                    // Incorrect answer
+                }
+                break;
+            default:
+                // Opcional: manejar caso inesperado
+                break;
+        }
+    }
+
+
 
 
     void setupUI() {
