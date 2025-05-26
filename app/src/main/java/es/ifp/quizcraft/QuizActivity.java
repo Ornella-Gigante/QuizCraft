@@ -1,5 +1,6 @@
 package es.ifp.quizcraft;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -15,7 +16,6 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
 
@@ -31,12 +31,12 @@ public class QuizActivity extends AppCompatActivity {
     TextView textViewWrong;
     RadioButton rb1, rb2,rb3,rb4;
     RadioGroup rbGroup;
-    Button btNext;
+    Button buttonNext;
     boolean answered = false;
     List<Questions> questList;
     Questions currentQ;
-    private int QuestionCounter =0;
-    private int QuestionTotalCount;
+    private int questionCounter =0;
+    private int questionTotalCount;
 
 
     @Override
@@ -80,22 +80,30 @@ public class QuizActivity extends AppCompatActivity {
 
         rbGroup.clearCheck();
 
-        QuestionTotalCount = questList.size();
+        questionTotalCount = questList.size();
 
         Collections.shuffle(questList);
-        if(QuestionCounter < QuestionTotalCount -1){
+        if(questionCounter < questionTotalCount -1){
 
-            currentQ = questList.get(QuestionCounter);
+            currentQ = questList.get(questionCounter);
             txtQuestion.setText(currentQ.getQuestion());
             rb1.setText(currentQ.getOpA());
             rb1.setText(currentQ.getOpB());
             rb1.setText(currentQ.getOpC());
             rb1.setText(currentQ.getOpD());
 
-            QuestionCounter ++;
+            questionCounter++;
             answered = false;
 
+            buttonNext.setText("Confirm");
+            textViewQuestionCount.setText("Questions : " + questionCounter +"/" + questionTotalCount);
 
+
+        }else {
+
+            Toast.makeText(this, "Quiz Finished", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
+            startActivity(intent);
         }
     }
 
@@ -110,6 +118,6 @@ public class QuizActivity extends AppCompatActivity {
         rb3 = findViewById(R.id.radio_button3);
         rb4 = findViewById(R.id.radio_button4);
         rbGroup = findViewById(R.id.radio_group);
-        btNext = findViewById(R.id.button_Next);
+        buttonNext = findViewById(R.id.button_Next);
     }
 }
