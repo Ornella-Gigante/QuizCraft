@@ -2,6 +2,7 @@ package es.ifp.quizcraft;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -75,9 +76,6 @@ public class QuizActivity extends AppCompatActivity {
 
     }
 
-    private void startQuiz() {
-    }
-
 
     private void setQuestions(){
 
@@ -108,6 +106,28 @@ public class QuizActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
             startActivity(intent);
         }
+    }
+
+
+    private void startQuiz() {
+
+        setQuestions();
+
+        buttonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(!answered){
+                    if(rb1.isChecked() || rb2.isChecked() || rb3.isChecked() || rb4.isChecked()){
+
+                        //quizOperation();
+                    }else{
+
+                        Toast.makeText(QuizActivity.this, "Please select answer", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
     }
 
     void setupUI() {
