@@ -16,6 +16,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import java.nio.file.Path;
+import java.util.Collections;
 import java.util.List;
 
 public class QuizActivity extends AppCompatActivity {
@@ -34,7 +35,7 @@ public class QuizActivity extends AppCompatActivity {
     boolean answered = false;
     List<Questions> questList;
     Questions currentQ;
-    private int QuestionCounter; 
+    private int QuestionCounter =0;
     private int QuestionTotalCount;
 
 
@@ -77,6 +78,25 @@ public class QuizActivity extends AppCompatActivity {
 
     private void setQuestions(){
 
+        rbGroup.clearCheck();
+
+        QuestionTotalCount = questList.size();
+
+        Collections.shuffle(questList);
+        if(QuestionCounter < QuestionTotalCount -1){
+
+            currentQ = questList.get(QuestionCounter);
+            txtQuestion.setText(currentQ.getQuestion());
+            rb1.setText(currentQ.getOpA());
+            rb1.setText(currentQ.getOpB());
+            rb1.setText(currentQ.getOpC());
+            rb1.setText(currentQ.getOpD());
+
+            QuestionCounter ++;
+            answered = false;
+
+
+        }
     }
 
     void setupUI() {
