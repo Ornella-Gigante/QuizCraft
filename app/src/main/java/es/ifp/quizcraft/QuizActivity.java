@@ -44,19 +44,20 @@ public class QuizActivity extends AppCompatActivity {
             "Incorrect! Try again",
             "Oops, that wasn't it",
             "Keep trying!",
-            "Wrong answer, don't give up!"
+            "Wrong answer, don't give up!",
+            "Try again, adventurer!",
     };
 
 
-    private static final String[] MOCK_ANSWERS = {
-            "42 is always the answer!",
-            "Try again, adventurer!",
-            "QuizCraft rocks!",
-            "Maybe next time!",
-            "Keep going!",
-            "You got this!",
-            "Surprise option!",
-            "Mystery answer!"
+    private static final String[] CORRECT_FEEDBACKS = {
+            "Correct! Well done!",
+            "Nice job!",
+            "Awesome! You nailed it!",
+            "That's right! Keep it up!",
+            "You got it!",
+            "Great work!",
+            "You rock!",
+            "Bingo! That’s the one!"
     };
 
     @Override
@@ -144,8 +145,8 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private String getRandomMockAnswer() {
-        int idx = (int) (Math.random() * MOCK_ANSWERS.length);
-        return MOCK_ANSWERS[idx];
+        int idx = (int) (Math.random() * CORRECT_FEEDBACKS.length);
+        return CORRECT_FEEDBACKS[idx];
     }
 
     private void quizOperation() {
