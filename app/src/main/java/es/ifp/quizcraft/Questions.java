@@ -105,5 +105,14 @@ public class Questions {
         this.answer = answer;
     }
 
+    public String getCorrectOptionText() {
+        switch (answer) {
+            case 1: return opA;
+            case 2: return opB;
+            case 3: return opC;
+            case 4: return opD;
+            default: return "";
+        }
+    }
 
 }

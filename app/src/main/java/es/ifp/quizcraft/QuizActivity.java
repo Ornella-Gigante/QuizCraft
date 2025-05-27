@@ -23,7 +23,6 @@ import java.util.List;
 
 public class QuizActivity extends AppCompatActivity {
 
-
     private QuestionViewModel questionViewModel;
     TextView txtQuestion;
     TextView textViewScore;
@@ -31,22 +30,41 @@ public class QuizActivity extends AppCompatActivity {
     TextView textViewQuestionCountDownTimer;
     TextView textViewCorrect;
     TextView textViewWrong;
-    RadioButton rb1, rb2,rb3,rb4;
+    RadioButton rb1, rb2, rb3, rb4;
     RadioGroup rbGroup;
     Button buttonNext;
     boolean answered = false;
     List<Questions> questList;
     Questions currentQ;
-    private int questionCounter =0;
+    private int questionCounter = 0;
     private int questionTotalCount;
 
+    private static final String[] INCORRECT_FEEDBACKS = {
+            "Not quite, maybe next time",
+            "Incorrect! Try again",
+            "Oops, that wasn't it",
+            "Keep trying!",
+            "Wrong answer, don't give up!"
+    };
+
+
+    private static final String[] MOCK_ANSWERS = {
+            "42 is always the answer!",
+            "Try again, adventurer!",
+            "QuizCraft rocks!",
+            "Maybe next time!",
+            "Keep going!",
+            "You got this!",
+            "Surprise option!",
+            "Mystery answer!"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_quiz);
-        
+
         setupUI();
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -55,27 +73,21 @@ public class QuizActivity extends AppCompatActivity {
             return insets;
         });
 
-
         questionViewModel = new ViewModelProvider(this).get(QuestionViewModel.class);
 
         questionViewModel.getAllQuestions().observe(this, new Observer<List<Questions>>() {
             @Override
             public void onChanged(List<Questions> questions) {
-
-                Toast.makeText(QuizActivity.this, "Get It:", Toast.LENGTH_SHORT).show();
-           
                 fetchContent(questions);
             }
         });
     }
 
     private void fetchContent(List<Questions> questions) {
-
         questList = questions;
-
         startQuiz();
-
     }
+
     private void setQuestionsView() {
         rbGroup.clearCheck();
 
@@ -109,21 +121,16 @@ public class QuizActivity extends AppCompatActivity {
         }
     }
 
-
     private void startQuiz() {
-
         setQuestionsView();
 
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if(!answered){
-                    if(rb1.isChecked() || rb2.isChecked() || rb3.isChecked() || rb4.isChecked()){
-
+                if (!answered) {
+                    if (rb1.isChecked() || rb2.isChecked() || rb3.isChecked() || rb4.isChecked()) {
                         quizOperation();
-                    }else{
-
+                    } else {
                         Toast.makeText(QuizActivity.this, "Please select answer", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -131,8 +138,17 @@ public class QuizActivity extends AppCompatActivity {
         });
     }
 
-private void quizOperation(){
+    private String getRandomFeedback() {
+        int idx = (int) (Math.random() * INCORRECT_FEEDBACKS.length);
+        return INCORRECT_FEEDBACKS[idx];
+    }
 
+    private String getRandomMockAnswer() {
+        int idx = (int) (Math.random() * MOCK_ANSWERS.length);
+        return MOCK_ANSWERS[idx];
+    }
+
+    private void quizOperation() {
         answered = true;
 
         RadioButton rbselected = findViewById(rbGroup.getCheckedRadioButtonId());
@@ -143,26 +159,28 @@ private void quizOperation(){
 
     private void checkSolution(int answerNr, RadioButton rbselected) {
         boolean isCorrect = (currentQ.getAnswer() == answerNr);
+        RadioButton correctRb = getCorrectRadioButton(currentQ.getAnswer());
 
-        // Cambia color según resultado
         if (isCorrect) {
             rbselected.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.when_answer_correct));
-            // Solo la seleccionada cambia a mock
             rbselected.setText(getRandomMockAnswer());
+            rbselected.postDelayed(this::setQuestionsView, 1200);
         } else {
+            // 1. Marca la seleccionada como incorrecta y muestra feedback
             changetoIncorrectColor(rbselected);
-            // Cambia la seleccionada y la correcta a mock
-            rbselected.setText(getRandomMockAnswer());
-            getCorrectRadioButton(currentQ.getAnswer()).setText(getRandomMockAnswer());
-        }
+            rbselected.setText(getRandomFeedback());
 
-        // Espera antes de pasar a la siguiente pregunta
-        rbselected.postDelayed(new Runnable() {
-            @Override
-            public void run() {
+            // 2. Marca la correcta en verde y muestra la respuesta real
+            correctRb.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.when_answer_correct));
+            correctRb.setText(currentQ.getCorrectOptionText());
+
+            // 3. Después de un delay, reemplaza ambas por mocks y pasa a la siguiente pregunta
+            rbselected.postDelayed(() -> {
+                rbselected.setText(getRandomMockAnswer());
+                correctRb.setText(getRandomMockAnswer());
                 setQuestionsView();
-            }
-        }, 1200);
+            }, 1600);
+        }
     }
 
     private RadioButton getCorrectRadioButton(int correctAnswer) {
@@ -175,12 +193,9 @@ private void quizOperation(){
         }
     }
 
-
     private void changetoIncorrectColor(RadioButton rbselected) {
-
-        rbselected.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.when_answer_wrong));
+        rbselected.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.when_answer_wrong));
     }
-
 
     void setupUI() {
         txtQuestion = findViewById(R.id.txtQuestionContainer);
@@ -195,21 +210,4 @@ private void quizOperation(){
         rbGroup = findViewById(R.id.radio_group);
         buttonNext = findViewById(R.id.button_Next);
     }
-
-    private static final String[] MOCK_ANSWERS = {
-            "42 is always the answer!",
-            "Try again, adventurer!",
-            "QuizCraft rocks!",
-            "Maybe next time!",
-            "Keep going!",
-            "You got this!",
-            "Surprise option!",
-            "Mystery answer!"
-    };
-
-    private String getRandomMockAnswer() {
-        int idx = (int) (Math.random() * MOCK_ANSWERS.length);
-        return MOCK_ANSWERS[idx];
-    }
-
 }
