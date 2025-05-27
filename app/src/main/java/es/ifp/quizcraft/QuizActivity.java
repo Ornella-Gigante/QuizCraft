@@ -94,6 +94,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private void fetchContent(List<Questions> questions) {
         questList = questions;
+        questionTotalCount = questList.size();
         startQuiz();
     }
 
