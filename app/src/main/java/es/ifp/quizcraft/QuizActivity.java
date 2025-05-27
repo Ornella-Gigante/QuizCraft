@@ -17,7 +17,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-
 import java.util.Collections;
 import java.util.List;
 
@@ -38,6 +37,9 @@ public class QuizActivity extends AppCompatActivity {
     Questions currentQ;
     private int questionCounter = 0;
     private int questionTotalCount;
+    private int correctAns = 0;
+    private int wrongAns = 0;
+    
 
     private static final String[] INCORRECT_FEEDBACKS = {
             "Not quite, maybe next time",
