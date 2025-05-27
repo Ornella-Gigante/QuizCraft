@@ -222,4 +222,21 @@ private void quizOperation(){
         rbGroup = findViewById(R.id.radio_group);
         buttonNext = findViewById(R.id.button_Next);
     }
+
+    private static final String[] MOCK_ANSWERS = {
+            "42 is always the answer!",
+            "Try again, adventurer!",
+            "QuizCraft rocks!",
+            "Maybe next time!",
+            "Keep going!",
+            "You got this!",
+            "Surprise option!",
+            "Mystery answer!"
+    };
+
+    private String getRandomMockAnswer() {
+        int idx = (int) (Math.random() * MOCK_ANSWERS.length);
+        return MOCK_ANSWERS[idx];
+    }
+
 }
