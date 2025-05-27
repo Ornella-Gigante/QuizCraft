@@ -76,33 +76,33 @@ public class QuizActivity extends AppCompatActivity {
         startQuiz();
 
     }
-
-
-    private void setQuestionsView(){
-
+    private void setQuestionsView() {
         rbGroup.clearCheck();
 
         questionTotalCount = questList.size();
 
-        Collections.shuffle(questList);
-        if(questionCounter < questionTotalCount -1){
-
+        if (questionCounter < questionTotalCount) {
             currentQ = questList.get(questionCounter);
+
             txtQuestion.setText(currentQ.getQuestion());
             rb1.setText(currentQ.getOpA());
-            rb1.setText(currentQ.getOpB());
-            rb1.setText(currentQ.getOpC());
-            rb1.setText(currentQ.getOpD());
+            rb2.setText(currentQ.getOpB());
+            rb3.setText(currentQ.getOpC());
+            rb4.setText(currentQ.getOpD());
+
+            // Restaura backgrounds
+            rb1.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.default_option_bg));
+            rb2.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.default_option_bg));
+            rb3.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.default_option_bg));
+            rb4.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.default_option_bg));
 
             questionCounter++;
             answered = false;
 
             buttonNext.setText("Confirm");
-            textViewQuestionCount.setText("Questions : " + questionCounter +"/" + questionTotalCount);
+            textViewQuestionCount.setText("Questions : " + questionCounter + "/" + questionTotalCount);
 
-
-        }else {
-
+        } else {
             Toast.makeText(this, "Quiz Finished", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
             startActivity(intent);
@@ -142,66 +142,39 @@ private void quizOperation(){
     }
 
     private void checkSolution(int answerNr, RadioButton rbselected) {
-        switch (currentQ.getAnswer()) {
-            case 1:
-                if (currentQ.getAnswer() == answerNr) {
+        boolean isCorrect = (currentQ.getAnswer() == answerNr);
 
-                    rb1.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.when_answer_correct));
+        // Cambia color según resultado
+        if (isCorrect) {
+            rbselected.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.when_answer_correct));
+            // Solo la seleccionada cambia a mock
+            rbselected.setText(getRandomMockAnswer());
+        } else {
+            changetoIncorrectColor(rbselected);
+            // Cambia la seleccionada y la correcta a mock
+            rbselected.setText(getRandomMockAnswer());
+            getCorrectRadioButton(currentQ.getAnswer()).setText(getRandomMockAnswer());
+        }
 
-                    setQuestionsView();
+        // Espera antes de pasar a la siguiente pregunta
+        rbselected.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                setQuestionsView();
+            }
+        }, 1200);
+    }
 
-                } else {
-
-                    changetoIncorrectColor(rbselected);
-                    setQuestionsView();
-
-
-                }
-                break;
-            case 2:
-                if (currentQ.getAnswer() == answerNr) {
-
-                    rb2.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.when_answer_correct));
-
-                    setQuestionsView();
-
-                } else {
-
-                    changetoIncorrectColor(rbselected);
-                    setQuestionsView();
-                }
-                break;
-            case 3:
-                if (currentQ.getAnswer() == answerNr) {
-
-                    rb3.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.when_answer_correct));
-
-                    setQuestionsView();
-
-                } else {
-
-                    changetoIncorrectColor(rbselected);
-                    setQuestionsView();
-                }
-                break;
-            case 4:
-                if (currentQ.getAnswer() == answerNr) {
-
-                    rb4.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.when_answer_correct));
-
-                    setQuestionsView();
-                } else {
-
-                    changetoIncorrectColor(rbselected);
-                    setQuestionsView();
-                }
-                break;
-            default:
-
-                Toast.makeText(this, "Error: Not valid answer.", Toast.LENGTH_SHORT).show();
-                break;
+    private RadioButton getCorrectRadioButton(int correctAnswer) {
+        switch (correctAnswer) {
+            case 1: return rb1;
+            case 2: return rb2;
+            case 3: return rb3;
+            case 4: return rb4;
+            default: return null;
         }
     }
+
 
     private void changetoIncorrectColor(RadioButton rbselected) {
 
