@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -77,7 +78,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
 
-    private void setQuestions(){
+    private void setQuestionsView(){
 
         rbGroup.clearCheck();
 
@@ -111,7 +112,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private void startQuiz() {
 
-        setQuestions();
+        setQuestionsView();
 
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,9 +145,15 @@ private void quizOperation(){
         switch (currentQ.getAnswer()) {
             case 1:
                 if (currentQ.getAnswer() == answerNr) {
-                    // rb1
+
+                    rb1.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.when_answer_correct));
+
+                    setQuestionsView();
+
                 } else {
-                    // rb1 incorrect
+
+                    changetoIncorrectColor(rbselected);
+
                 }
                 break;
             case 2:
@@ -177,7 +184,10 @@ private void quizOperation(){
         }
     }
 
+    private void changetoIncorrectColor(RadioButton rbselected) {
 
+        rbselected.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.when_answer_wrong));
+    }
 
 
     void setupUI() {
