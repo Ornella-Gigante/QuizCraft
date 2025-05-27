@@ -39,7 +39,7 @@ public class QuizActivity extends AppCompatActivity {
     private int questionTotalCount;
     private int correctAns = 0;
     private int wrongAns = 0;
-    
+
 
     private static final String[] INCORRECT_FEEDBACKS = {
             "Not quite, maybe next time",
@@ -167,6 +167,7 @@ public class QuizActivity extends AppCompatActivity {
         if (isCorrect) {
             rbselected.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.when_answer_correct));
             rbselected.setText(getRandomMockAnswer());
+            correctAns ++;
             rbselected.postDelayed(this::setQuestionsView, 1200);
         } else {
             // 1. Marca la seleccionada como incorrecta y muestra feedback
