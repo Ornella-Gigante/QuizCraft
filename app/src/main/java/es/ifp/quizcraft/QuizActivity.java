@@ -36,10 +36,9 @@ public class QuizActivity extends AppCompatActivity {
     List<Questions> questList;
     Questions currentQ;
     private int questionCounter = 0;
-    private int questionTotalCount;
+    private int questionTotalCount=0;
     private int correctAns = 0;
     private int wrongAns = 0;
-
 
     private static final String[] INCORRECT_FEEDBACKS = {
             "Not quite, maybe next time",
@@ -75,6 +74,13 @@ public class QuizActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+
+        textViewCorrect.setText("Correctas: 0");
+        textViewWrong.setText("Incorrectas: 0");
+        textViewScore.setText("Score: 0");
+        textViewQuestionCount.setText("Pregunta 1/1");
+
 
         questionViewModel = new ViewModelProvider(this).get(QuestionViewModel.class);
 
