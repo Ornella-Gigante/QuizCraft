@@ -197,7 +197,8 @@ private void quizOperation(){
                 }
                 break;
             default:
-                // Opcional: manejar caso inesperado
+
+                Toast.makeText(this, "Error: Not valid answer.", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
