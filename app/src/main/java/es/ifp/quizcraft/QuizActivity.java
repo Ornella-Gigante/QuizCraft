@@ -122,7 +122,8 @@ public class QuizActivity extends AppCompatActivity {
             answered = false;
 
             buttonNext.setText("Confirm");
-            textViewQuestionCount.setText("Questions : " + questionCounter + "/" + questionTotalCount);
+            textViewQuestionCount.setText("Question: " + questionCounter + "/" + questionTotalCount);
+
 
         } else {
             Toast.makeText(this, "Quiz Finished", Toast.LENGTH_SHORT).show();
@@ -173,19 +174,18 @@ public class QuizActivity extends AppCompatActivity {
 
         if (isCorrect) {
             rbselected.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.when_answer_correct));
+            correctAns++;
+            textViewCorrect.setText("Correct: " + correctAns);
+            textViewScore.setText("Score: " + correctAns);
             rbselected.setText(getRandomMockAnswer());
-            correctAns ++;
             rbselected.postDelayed(this::setQuestionsView, 1200);
         } else {
-            // 1. Marca la seleccionada como incorrecta y muestra feedback
             changetoIncorrectColor(rbselected);
+            wrongAns++;
+            textViewWrong.setText("Incorrect: " + wrongAns);
             rbselected.setText(getRandomFeedback());
-
-            // 2. Marca la correcta en verde y muestra la respuesta real
             correctRb.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.when_answer_correct));
             correctRb.setText(currentQ.getCorrectOptionText());
-
-            // 3. Después de un delay, reemplaza ambas por mocks y pasa a la siguiente pregunta
             rbselected.postDelayed(() -> {
                 rbselected.setText(getRandomMockAnswer());
                 correctRb.setText(getRandomMockAnswer());
