@@ -153,29 +153,47 @@ private void quizOperation(){
                 } else {
 
                     changetoIncorrectColor(rbselected);
+                    setQuestionsView();
+
 
                 }
                 break;
             case 2:
                 if (currentQ.getAnswer() == answerNr) {
 
-                    // Correct answer selected (Option B)
+                    rb2.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.when_answer_correct));
+
+                    setQuestionsView();
+
                 } else {
-                    // Incorrect answer
+
+                    changetoIncorrectColor(rbselected);
+                    setQuestionsView();
                 }
                 break;
             case 3:
                 if (currentQ.getAnswer() == answerNr) {
-                    // Correct answer selected (Option C)
+
+                    rb3.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.when_answer_correct));
+
+                    setQuestionsView();
+
                 } else {
-                    // Incorrect answer
+
+                    changetoIncorrectColor(rbselected);
+                    setQuestionsView();
                 }
                 break;
             case 4:
                 if (currentQ.getAnswer() == answerNr) {
-                    // Correct answer selected (Option D)
+
+                    rb4.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.when_answer_correct));
+
+                    setQuestionsView();
                 } else {
-                    // Incorrect answer
+
+                    changetoIncorrectColor(rbselected);
+                    setQuestionsView();
                 }
                 break;
             default:
