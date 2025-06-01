@@ -126,7 +126,7 @@ public class QuizActivity extends AppCompatActivity {
 
 
         } else {
-            // MODIFICACIÓN: Al terminar el quiz, lanza la pantalla de score final! 
+            // MODIFICACIÓN: Al terminar el quiz, lanza la pantalla de score final!
             Intent intent = new Intent(QuizActivity.this, FinalScoreActivity.class);
             intent.putExtra("SCORE", correctAns); // Pasa el score final
             intent.putExtra("TOTAL", questionTotalCount); // Pasa el total de preguntas
