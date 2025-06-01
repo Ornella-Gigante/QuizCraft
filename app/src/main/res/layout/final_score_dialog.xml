@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradient">
 
     <!-- Trophy or celebration icon -->
     <ImageView
-        android:id="@+id/imgTrophy"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/ic_trophy"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintTop_margin="48dp"
+        android:id="@+id/imageView2"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/owl_png_app" />
 
     <!-- Congratulations message -->
     <TextView
@@ -22,10 +23,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Quiz Finished!"
+        android:textColor="#4A90E2"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:textColor="#4A90E2"
-        app:layout_constraintTop_toBottomOf="@id/imgTrophy"
+        app:layout_constraintTop_toBottomOf="@id/imageView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
@@ -36,8 +37,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="You got 7 out of 10 correct!"
-        android:textSize="20sp"
         android:textColor="#000"
+        android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@id/txtCongrats"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,8 +50,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Keep practicing and beat your high score!"
-        android:textSize="16sp"
         android:textColor="#1976D2"
+        android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/txtFinalScore"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,14 +62,14 @@
         android:id="@+id/btnRestart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#4A90E2"
         android:text="Play Again"
         android:textAllCaps="false"
         android:textColor="#fff"
-        android:backgroundTint="#4A90E2"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/txtMotivation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"/>
+        android:layout_marginTop="32dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
