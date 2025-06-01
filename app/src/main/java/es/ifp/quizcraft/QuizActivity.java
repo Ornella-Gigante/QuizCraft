@@ -126,10 +126,14 @@ public class QuizActivity extends AppCompatActivity {
 
 
         } else {
-            Toast.makeText(this, "Quiz Finished", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
+            // MODIFICACIÓN: Al terminar el quiz, lanza la pantalla de score final! 
+            Intent intent = new Intent(QuizActivity.this, FinalScoreActivity.class);
+            intent.putExtra("SCORE", correctAns); // Pasa el score final
+            intent.putExtra("TOTAL", questionTotalCount); // Pasa el total de preguntas
             startActivity(intent);
+            finish();
         }
+
     }
 
     private void startQuiz() {
