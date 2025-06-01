@@ -10,11 +10,11 @@
         android:id="@+id/imgTrophy"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/ic_trophy" <!-- Use your own trophy drawable -->
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintTop_margin="48dp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"/>
+        android:src="@drawable/ic_trophy"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_margin="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Congratulations message -->
     <TextView
