@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient">
+
+    <!-- Trophy or celebration icon -->
+    <ImageView
+        android:id="@+id/imgTrophy"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_trophy" <!-- Use your own trophy drawable -->
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintTop_margin="48dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Congratulations message -->
+    <TextView
+        android:id="@+id/txtCongrats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quiz Finished!"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#4A90E2"
+        app:layout_constraintTop_toBottomOf="@id/imgTrophy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Result message -->
+    <TextView
+        android:id="@+id/txtFinalScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You got 7 out of 10 correct!"
+        android:textSize="20sp"
+        android:textColor="#000"
+        app:layout_constraintTop_toBottomOf="@id/txtCongrats"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <!-- Motivational message -->
+    <TextView
+        android:id="@+id/txtMotivation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Keep practicing and beat your high score!"
+        android:textSize="16sp"
+        android:textColor="#1976D2"
+        app:layout_constraintTop_toBottomOf="@id/txtFinalScore"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Restart button -->
+    <Button
+        android:id="@+id/btnRestart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play Again"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:backgroundTint="#4A90E2"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/txtMotivation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
