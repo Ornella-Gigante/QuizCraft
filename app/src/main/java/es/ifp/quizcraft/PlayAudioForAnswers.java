@@ -12,4 +12,25 @@ public class PlayAudioForAnswers {
     public PlayAudioForAnswers(Context mContext) {
         this.mContext = mContext;
     }
+
+
+    public void setAudioforAnswers(final int flag){
+
+        switch (flag){
+
+            case 1:
+                int correctAudio = R.raw.correct;
+                playMusic(correctAudio);
+            break; 
+
+            case 2:
+                int wrongAudio = R.raw.wrong;
+                playMusic(wrongAudio);
+            break;
+        }
+    }
+
+    private void playMusic(int correctAudio) {
+
+    }
 }
