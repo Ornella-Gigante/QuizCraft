@@ -8,7 +8,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -39,6 +38,10 @@ public class QuizActivity extends AppCompatActivity {
     private int questionTotalCount=0;
     private int correctAns = 0;
     private int wrongAns = 0;
+
+    private int FLAG = 0;
+    private PlayAudioForAnswers playAudioForAnswers;
+
 
     private static final String[] INCORRECT_FEEDBACKS = {
             "Not quite, maybe next time",
@@ -81,6 +84,9 @@ public class QuizActivity extends AppCompatActivity {
         textViewScore.setText("Score: 0");
         textViewQuestionCount.setText("Pregunta 1/1");
 
+
+
+        playAudioForAnswers = new PlayAudioForAnswers(this);
 
         questionViewModel = new ViewModelProvider(this).get(QuestionViewModel.class);
 
