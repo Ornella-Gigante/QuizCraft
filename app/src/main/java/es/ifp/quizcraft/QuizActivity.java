@@ -183,6 +183,8 @@ public class QuizActivity extends AppCompatActivity {
         RadioButton correctRb = getCorrectRadioButton(currentQ.getAnswer());
 
         if (isCorrect) {
+            FLAG = 1;
+            playAudioForAnswers.setAudioforAnswers(FLAG);
             rbselected.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.when_answer_correct));
             correctAns++;
             textViewCorrect.setText("Correct: " + correctAns);
@@ -190,6 +192,8 @@ public class QuizActivity extends AppCompatActivity {
             rbselected.setText(getRandomMockAnswer());
             rbselected.postDelayed(this::setQuestionsView, 1200);
         } else {
+            FLAG = 2;
+            playAudioForAnswers.setAudioforAnswers(FLAG);
             changetoIncorrectColor(rbselected);
             wrongAns++;
             textViewWrong.setText("Incorrect: " + wrongAns);
