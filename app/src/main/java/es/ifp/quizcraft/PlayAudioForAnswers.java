@@ -21,7 +21,7 @@ public class PlayAudioForAnswers {
             case 1:
                 int correctAudio = R.raw.correct;
                 playMusic(correctAudio);
-            break; 
+            break;
 
             case 2:
                 int wrongAudio = R.raw.wrong;
@@ -30,7 +30,25 @@ public class PlayAudioForAnswers {
         }
     }
 
-    private void playMusic(int correctAudio) {
+    private void playMusic(int audioFile) {
+
+        mediaPlayer = MediaPlayer.create(mContext, audioFile);
+        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener(){
+            @Override
+            public void onPrepared(MediaPlayer mp){
+
+                mediaPlayer.start();
+            }
+        });
+
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
+
+            @Override
+            public void onCompletion(MediaPlayer mp){
+
+                mediaPlayer.release();
+            }
+        });
 
     }
 }
