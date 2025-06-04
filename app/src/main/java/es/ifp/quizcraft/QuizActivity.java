@@ -151,7 +151,29 @@ public class QuizActivity extends AppCompatActivity {
 
     private void startCountDown() {
 
+        countDownTimer = new CountDownTimer(timeLeftinMillis, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+                timeLeftinMillis = millisUntilFinished;
+                updateCountDownText();
+
+            }
+
+            @Override
+            public void onFinish() {
+
+                timeLeftinMillis = 0;
+                updateCountDownText();
+
+            }
+        }.start();
+    }
+
+    private void updateCountDownText() {
+
         
+
     }
 
     private void startQuiz() {
