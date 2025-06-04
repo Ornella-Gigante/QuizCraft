@@ -1,6 +1,7 @@
 package es.ifp.quizcraft;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -19,6 +20,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -36,7 +38,7 @@ public class QuizActivity extends AppCompatActivity {
     List<Questions> questList;
     Questions currentQ;
     private int questionCounter = 0;
-    private int questionTotalCount=0;
+    private int questionTotalCount = 0;
     private int correctAns = 0;
     private int wrongAns = 0;
 
@@ -47,6 +49,7 @@ public class QuizActivity extends AppCompatActivity {
     private CountDownTimer countDownTimer;
     private long timeLeftinMillis;
 
+    private int textColorof; // Declaración del color original del timer
 
     private static final String[] INCORRECT_FEEDBACKS = {
             "Not quite, maybe next time",
@@ -56,7 +59,6 @@ public class QuizActivity extends AppCompatActivity {
             "Wrong answer, don't give up!",
             "Try again, adventurer!",
     };
-
 
     private static final String[] CORRECT_FEEDBACKS = {
             "Correct! Well done!",
@@ -83,15 +85,15 @@ public class QuizActivity extends AppCompatActivity {
             return insets;
         });
 
-
         textViewCorrect.setText("Correctas: 0");
         textViewWrong.setText("Incorrectas: 0");
         textViewScore.setText("Score: 0");
         textViewQuestionCount.setText("Pregunta 1/1");
 
-
-
         playAudioForAnswers = new PlayAudioForAnswers(this);
+
+        // Inicializa el color original del timer después de asociar el TextView
+        textColorof = textViewQuestionCountDownTimer.getCurrentTextColor();
 
         questionViewModel = new ViewModelProvider(this).get(QuestionViewModel.class);
 
@@ -137,43 +139,46 @@ public class QuizActivity extends AppCompatActivity {
             timeLeftinMillis = COUNTDOWN_IN_MILLIS;
             startCountDown();
 
-
         } else {
-            // MODIFICACIÓN: Al terminar el quiz, lanza la pantalla de score final!
+            // Al terminar el quiz, lanza la pantalla de score final
             Intent intent = new Intent(QuizActivity.this, FinalScoreActivity.class);
-            intent.putExtra("SCORE", correctAns); // Pasa el score final
-            intent.putExtra("TOTAL", questionTotalCount); // Pasa el total de preguntas
+            intent.putExtra("SCORE", correctAns);
+            intent.putExtra("TOTAL", questionTotalCount);
             startActivity(intent);
             finish();
         }
-
     }
 
     private void startCountDown() {
-
         countDownTimer = new CountDownTimer(timeLeftinMillis, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-
                 timeLeftinMillis = millisUntilFinished;
                 updateCountDownText();
-
             }
 
             @Override
             public void onFinish() {
-
                 timeLeftinMillis = 0;
                 updateCountDownText();
-
             }
         }.start();
     }
 
     private void updateCountDownText() {
+        int minutes = (int) (timeLeftinMillis / 1000) / 60;
+        int seconds = (int) (timeLeftinMillis / 1000) % 60;
 
-        
+        String timeFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+        textViewQuestionCountDownTimer.setText(timeFormatted);
 
+        if (timeLeftinMillis <= 0) {
+            textViewQuestionCountDownTimer.setTextColor(Color.RED);
+            FLAG = 3;
+            playAudioForAnswers.setAudioforAnswers(FLAG);
+        } else {
+            textViewQuestionCountDownTimer.setTextColor(textColorof);
+        }
     }
 
     private void startQuiz() {
@@ -205,7 +210,6 @@ public class QuizActivity extends AppCompatActivity {
 
     private void quizOperation() {
         answered = true;
-
         countDownTimer.cancel();
 
         RadioButton rbselected = findViewById(rbGroup.getCheckedRadioButtonId());
@@ -264,6 +268,7 @@ public class QuizActivity extends AppCompatActivity {
         textViewQuestionCount = findViewById(R.id.txtTotalQuestions);
         textViewCorrect = findViewById(R.id.textCorrect);
         textViewWrong = findViewById(R.id.txtWrong);
+        textViewQuestionCountDownTimer = findViewById(R.id.txtTimer); // Asegúrate de tener este ID en tu XML
         rb1 = findViewById(R.id.radio_button1);
         rb2 = findViewById(R.id.radio_button2);
         rb3 = findViewById(R.id.radio_button3);
