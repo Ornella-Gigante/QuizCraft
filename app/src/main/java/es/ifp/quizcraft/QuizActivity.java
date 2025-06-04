@@ -45,11 +45,12 @@ public class QuizActivity extends AppCompatActivity {
     private int FLAG = 0;
     private PlayAudioForAnswers playAudioForAnswers;
 
-    private static final long COUNTDOWN_IN_MILLIS = 3000;
+    // CAMBIO: Timer global de 60 segundos para todo el quiz
+    private static final long COUNTDOWN_IN_MILLIS = 60000; // 60 segundos
     private CountDownTimer countDownTimer;
     private long timeLeftinMillis;
 
-    private int textColorof; // Declaración del color original del timer
+    private int textColorof; // Color original del timer
 
     private static final String[] INCORRECT_FEEDBACKS = {
             "Not quite, maybe next time",
@@ -136,17 +137,37 @@ public class QuizActivity extends AppCompatActivity {
 
             buttonNext.setText("Confirm");
             textViewQuestionCount.setText("Question: " + questionCounter + "/" + questionTotalCount);
-            timeLeftinMillis = COUNTDOWN_IN_MILLIS;
-            startCountDown();
+
+            // ELIMINADO: No reiniciar el timer aquí
+            // timeLeftinMillis = COUNTDOWN_IN_MILLIS;
+            // startCountDown();
 
         } else {
             // Al terminar el quiz, lanza la pantalla de score final
-            Intent intent = new Intent(QuizActivity.this, FinalScoreActivity.class);
-            intent.putExtra("SCORE", correctAns);
-            intent.putExtra("TOTAL", questionTotalCount);
-            startActivity(intent);
-            finish();
+            finishQuiz();
         }
+    }
+
+    // INICIO DEL TIMER GLOBAL SOLO UNA VEZ
+    private void startQuiz() {
+        setQuestionsView();
+
+        // Timer global de 60 segundos para todo el quiz
+        timeLeftinMillis = COUNTDOWN_IN_MILLIS;
+        startCountDown();
+
+        buttonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!answered) {
+                    if (rb1.isChecked() || rb2.isChecked() || rb3.isChecked() || rb4.isChecked()) {
+                        quizOperation();
+                    } else {
+                        Toast.makeText(QuizActivity.this, "Please select answer", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
     }
 
     private void startCountDown() {
@@ -161,6 +182,8 @@ public class QuizActivity extends AppCompatActivity {
             public void onFinish() {
                 timeLeftinMillis = 0;
                 updateCountDownText();
+                // Si el tiempo llega a cero, termina el quiz y muestra el score actual
+                finishQuiz();
             }
         }.start();
     }
@@ -181,21 +204,14 @@ public class QuizActivity extends AppCompatActivity {
         }
     }
 
-    private void startQuiz() {
-        setQuestionsView();
-
-        buttonNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!answered) {
-                    if (rb1.isChecked() || rb2.isChecked() || rb3.isChecked() || rb4.isChecked()) {
-                        quizOperation();
-                    } else {
-                        Toast.makeText(QuizActivity.this, "Please select answer", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        });
+    private void finishQuiz() {
+        // Cancela el timer si sigue corriendo
+        if (countDownTimer != null) countDownTimer.cancel();
+        Intent intent = new Intent(QuizActivity.this, FinalScoreActivity.class);
+        intent.putExtra("SCORE", correctAns);
+        intent.putExtra("TOTAL", questionTotalCount);
+        startActivity(intent);
+        finish();
     }
 
     private String getRandomFeedback() {
@@ -210,7 +226,11 @@ public class QuizActivity extends AppCompatActivity {
 
     private void quizOperation() {
         answered = true;
-        countDownTimer.cancel();
+
+        // Si el usuario responde antes de tiempo, cancela el timer solo si es la última pregunta
+        if (questionCounter >= questionTotalCount) {
+            if (countDownTimer != null) countDownTimer.cancel();
+        }
 
         RadioButton rbselected = findViewById(rbGroup.getCheckedRadioButtonId());
         int answerNr = rbGroup.indexOfChild(rbselected) + 1;
