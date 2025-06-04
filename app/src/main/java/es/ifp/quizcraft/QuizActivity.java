@@ -134,6 +134,8 @@ public class QuizActivity extends AppCompatActivity {
 
             buttonNext.setText("Confirm");
             textViewQuestionCount.setText("Question: " + questionCounter + "/" + questionTotalCount);
+            timeLeftinMillis = COUNTDOWN_IN_MILLIS;
+            startCountDown();
 
 
         } else {
@@ -145,6 +147,11 @@ public class QuizActivity extends AppCompatActivity {
             finish();
         }
 
+    }
+
+    private void startCountDown() {
+
+        
     }
 
     private void startQuiz() {
