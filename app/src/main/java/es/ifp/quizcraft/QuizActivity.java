@@ -2,6 +2,7 @@ package es.ifp.quizcraft;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -41,6 +42,10 @@ public class QuizActivity extends AppCompatActivity {
 
     private int FLAG = 0;
     private PlayAudioForAnswers playAudioForAnswers;
+
+    private static final long COUNTDOWN_IN_MILLIS = 3000;
+    private CountDownTimer countDownTimer;
+    private long timeLeftinMillis;
 
 
     private static final String[] INCORRECT_FEEDBACKS = {
