@@ -177,6 +177,8 @@ public class QuizActivity extends AppCompatActivity {
     private void quizOperation() {
         answered = true;
 
+        countDownTimer.cancel();
+
         RadioButton rbselected = findViewById(rbGroup.getCheckedRadioButtonId());
         int answerNr = rbGroup.indexOfChild(rbselected) + 1;
 
