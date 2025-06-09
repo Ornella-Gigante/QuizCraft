@@ -8,32 +8,33 @@
 
     <TextView
         android:id="@+id/txtWelcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="302dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="84dp"
         android:text="Welcome to QuizCraft!"
+        android:textColor="#D8E0E9"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:textColor="#D8E0E9"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="64dp"/>
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imgWelcome"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="152dp"
+        android:layout_width="300dp"
+        android:layout_height="249dp"
+        android:layout_marginTop="80dp"
         android:src="@drawable/niño"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtWelcome" />
 
     <Button
         android:id="@+id/btnStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="134dp"
+        android:layout_height="54dp"
         android:layout_marginTop="48dp"
         android:backgroundTint="#4A90E2"
         android:text="START"
@@ -43,5 +44,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imgWelcome" />
+        app:layout_constraintTop_toBottomOf="@id/imgWelcome"
+        app:layout_constraintVertical_bias="0.106" />
 </androidx.constraintlayout.widget.ConstraintLayout>
