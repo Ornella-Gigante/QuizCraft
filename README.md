@@ -35,8 +35,11 @@ The project is organized into the following main components:
 
 ## 🎥 Video Demo
 
+<p align="center">
+  <a href="https://vimeo.com/1092095539/93c32541b7" title="QuizCraft Demo">
 
-=== IN PROCESS === 
+  </a>
+</p>
 
 ---
 
