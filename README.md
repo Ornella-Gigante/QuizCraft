@@ -37,7 +37,7 @@ The project is organized into the following main components:
 
 <p align="center">
   <a href="https://vimeo.com/1092095539/93c32541b7" title="QuizCraft Demo">
-      <img src="https://vimeo.com/1092095539/93c32541b7" alt="QuizCraft Demo" width="400">
+      <img src="https://github.com/Ornella-Gigante/QuizCraft/blob/main/welcome_demo_image.png" alt="QuizCraft Demo" width="400">
   </a>
 </p>
 
